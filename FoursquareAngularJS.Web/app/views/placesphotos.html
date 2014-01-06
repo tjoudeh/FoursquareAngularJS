@@ -1,0 +1,22 @@
+﻿<div class="modal-header">
+    <a href="" class="close" data-ng-click="close()">&times;</a>
+    <h4>{{venueName}}</h4>
+</div>
+<div class="modal-body">
+    <div>
+        <div class="row">
+            <div data-ng-repeat="photo in venuePhotos">
+                <div class="col-xs-4 photoCaption">
+                    <img data-ng-src="{{buildVenuePhoto(photo)}}" class="img-thumbnail" />
+                    <small><em>By: {{photo.user.firstName + ' ' + photo.user.lastName}}</em></small>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

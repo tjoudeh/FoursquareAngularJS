@@ -1,0 +1,49 @@
+﻿<div>
+    <div data-ng-show="myPlaces || myPlaces.length > 0">
+        <div>
+            <h3>Bookmarked places for user: <span class="text-warning">{{myPlaces[0].userName}}</span></h3>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+            <tr>
+                <th>Place Name</th>
+                <th>Category</th>
+                <th>Address</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-hide="myPlaces || myPlaces.length > 0">
+                <td colspan="4">
+                    <div class="text-center text-warning"><strong>No bookmarked places found, Explore Foursquare and Bookmark Some Places!</strong></div>
+                </td>
+            </tr>
+            <tr data-ng-repeat="place in myPlaces">
+                <td>
+                    <a target="_blank" data-ng-href="https://foursquare.com/v/{{place.venueID}}">{{ place.venueName }}</a>
+                </td>
+                <td>{{ place.category }}
+                </td>
+                <td>{{ place.address }}
+                </td>
+                <td><span class="badge">{{ place.rating | number:1 }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+  
+
+            <div class="pull-right" data-ng-show="totalRecordsCount > 0">
+                <div>
+                    <div data-pagination="" data-previous-text="<" data-next-text=">" data-first-text="<<" data-last-text=">>"
+                        data-on-select-page="pageChanged(page)" data-total-items="totalRecordsCount" data-page="currentPage"
+                        data-boundary-links="true" class="pagination pagination-sm" data-max-size="5" data-rotate="false" data-items-per-page="10">
+                    </div>
+                </div>
+            </div>
+           
+
+       
+</div>

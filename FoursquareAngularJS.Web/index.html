@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="FoursquareApp">
+<head>
+    <title>Explore Foursquare</title>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/css/amelia-bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/css/toaster.css" rel="stylesheet" />
+    <link href="content/css/loading-bar.min.css" rel="stylesheet" />
+    <link href="content/css/site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="page">
+
+        <header class="container" data-ng-controller="navigationController">
+            <div id="menu" class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button class="btn btn-success navbar-toggle"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                    <div id="logo">
+                        <a href='#/'>
+                            <h4>Explore Foursquare</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li data-ng-class="{'active':isActive('/explore')}"><a href="#/explore">Explore</a></li>
+                        <li data-ng-class="{'active':isActive('/places')}"><a href="#/places">My Places</a></li>
+                        <li data-ng-class="{'active':isActive('/about')}"><a href="#/about">About</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </header>
+        <section id="body" class="container">
+            <div data-ng-view=""></div>
+        </section>
+        <hr />
+        <footer class="container">
+            <p>Created by Taiseer Joudeh. Twitter: <a target="_blank" href="http://twitter.com/tjoudeh">@tjoudeh</a></p>
+            <p>Taiseer Joudeh Blog: <a target="_blank" href="http://www.bitoftech.net">bitoftech.net</a></p>
+        </footer>
+
+    </div>
+
+    <!-- 3rd party libraries -->
+   
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-animate.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.9.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="scripts/toaster.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+
+    <!-- Load custom scripts -->
+    <script src="app/app.js"></script>
+
+    <!-- Load services -->
+    <script src="app/services/placesExplorerService.js"></script>
+    <script src="app/services/placesPhotosService.js"></script>
+    <script src="app/services/placesDataService.js"></script>
+
+    <!-- Load controllers -->
+    <script src="app/controllers/placesPhotosController.js"></script>
+    <script src="app/controllers/placesExplorerController.js"></script>
+    <script src="app/controllers/userContextController.js"></script>
+    <script src="app/controllers/myPlacesController.js"></script>
+    <script src="app/controllers/navigationController.js"></script>
+    <script src="app/controllers/aboutController.js"></script>
+
+    <!-- Load custom filters -->
+    <script src="app/filters/placeNameCategoryFilter.js"></script>
+
+    <!-- Load custom directives -->
+    <script src="app/directives/fsUnique.js"></script>
+</body>
+</html>
+
+
+

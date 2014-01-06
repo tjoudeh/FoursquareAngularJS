@@ -1,0 +1,20 @@
+﻿#logo {
+padding-left:3px;
+}
+.venueName{
+    margin-top:6px;
+}
+.venueIcon{
+    margin-left:-7px;
+}
+
+.photoCaption{
+    margin-bottom:15px;
+}
+
+.pagination a {
+ cursor: pointer;
+}
+.seperator{
+    margin:3px 0 6px 0;
+}

@@ -1,0 +1,84 @@
+﻿<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-md-offset-2">
+    <form class="form-horizontal">
+
+        <div class="form-group">
+
+            <div class="col-md-5 col-xs-4 col-sm-5">
+                <input type="text" data-ng-model="exploreNearby" class="form-control" placeholder="Explore Places In. e.g. New York" />
+            </div>
+
+            <div class="col-md-5 col-xs-4 col-sm-5">
+                <input type="text" data-ng-model="exploreQuery" class="form-control" placeholder="Specify Category. e.g. Burger" />
+            </div>
+
+            <div class="col-md-2 col-xs-4 col-sm-2">
+                <button class="btn btn-primary pull-right" data-ng-click="doSearch()"><span class="glyphicon glyphicon-search"></span>Explore</button>
+            </div>
+
+           
+        </div>
+
+        <div class="well well-sm" data-ng-show="totalRecordsCount == 0">
+            <h5>No Places found Near by ({{exploreNearby}})</h5>
+        </div>
+        <toaster-container toaster-options="{'time-out': 1700}"></toaster-container>
+        <div data-ng-show="totalRecordsCount > 0">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" data-ng-model="filterValue" class="form-control" placeholder="Filter Places by (Place Name) or (Category)" />
+                </div>
+            </div>
+            <ul class="list-group" data-ng-repeat="item in filteredPlaces">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <img data-ng-src="{{buildCategoryIcon(item.venue.categories[0].icon)}}"
+                                title="{{item.venue.categories[0].shortName}}" class="venueIcon" />
+                        </div>
+                        <div class="col-xs-6 col-md-8">
+                            <a href="" data-ng-click="showVenuePhotos(item.venue.id,item.venue.name)">
+                                <h2 class="venueName">{{item.venue.name}}</h2>
+                            </a>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <span class="badge">{{item.venue.rating | number:1}}</span>
+                        </div>
+                        <div class="col-xs-6 col-md-8">
+                            <p class="text-warning"><small>{{(item.venue.location.address != null) && item.venue.location.address}} - {{item.venue.categories[0].shortName}}</small></p>
+                            <p>{{item.tips[0].text}}</p>
+                            <hr class="seperator" />
+                            <a href="" data-ng-click="bookmarkPlace(item.venue)"><span class="glyphicon glyphicon-bookmark"></span>Bookmark Place</a>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <a href="" data-ng-click="showVenuePhotos(item.venue.id,item.venue.name)">
+                                <img data-ng-src="{{buildVenueThumbnail(item.venue.photos.groups[0])}}" class="img-thumbnail" /></a>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-offset-2 col-md-8 col-md-offset-2 text-center">
+                <div data-ng-show="totalRecordsCount > 0">
+                    <div>
+                        <div data-pagination="" data-previous-text="<" data-next-text=">" data-first-text="<<" data-last-text=">>"
+                            data-on-select-page="pageChanged(page)" data-total-items="totalRecordsCount" data-page="currentPage"
+                            data-boundary-links="true" class="pagination pagination-sm" data-max-size="5" data-rotate="false" data-items-per-page="10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </form>
+</div>
