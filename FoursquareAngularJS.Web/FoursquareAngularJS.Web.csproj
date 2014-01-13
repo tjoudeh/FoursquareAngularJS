@@ -163,6 +163,7 @@
     <Content Include="content\css\site.css" />
     <Content Include="content\css\toaster.css" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
@@ -209,6 +210,10 @@
       <Project>{bc3a8110-acc2-40ff-ac8c-0966533f8d41}</Project>
       <Name>FoursquareAngularJS.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\explore4sq - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\explore4sq - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

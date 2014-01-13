@@ -24,7 +24,7 @@ app.controller('placesExplorerController', function ($scope, placesExplorerServi
 
     function getPlaces() {
 
-        var offset = ($scope.pageSize) * ($scope.currentPage - 1);
+       var offset = ($scope.pageSize) * ($scope.currentPage - 1);
 
         placesExplorerService.get({ near: $scope.exploreNearby, query: $scope.exploreQuery, limit: $scope.pageSize, offset: offset }, function (placesResult) {
 

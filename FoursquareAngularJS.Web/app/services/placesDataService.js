@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.factory('placesDataService', function ($http, $q, toaster) {
+app.factory('placesDataService', function ($http, toaster) {
 
     var serviceBase = '/api/places/';
     var placesDataFactory = {};
